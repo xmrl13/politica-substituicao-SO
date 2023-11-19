@@ -2,7 +2,7 @@ package algoritmos;
 
 import java.util.*;
 
-public class NewLRU {
+public class LRU {
 
     public static void executar(int numQuadros, int numPaginas, List<Integer> sequencia) {
         System.out.println("Número de quadros: " + numQuadros);

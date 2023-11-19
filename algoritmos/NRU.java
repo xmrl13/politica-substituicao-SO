@@ -1,4 +1,5 @@
 package algoritmos;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,17 +10,11 @@ public class NRU {
         System.out.println("Número total de páginas distintas: " + numPaginas);
 
         List<Integer> lista = new ArrayList<>(numQuadros);
-        List<Boolean> referenciadas = new ArrayList<>(numQuadros);
-        List<Boolean> modificadas = new ArrayList<>(numQuadros);
+        List<Boolean> referenciadas = new ArrayList<>();
+        List<Boolean> modificadas = new ArrayList<>();
         int pageFaults = 0;
 
         long startTime = System.currentTimeMillis();
-
-        for (int i = 0; i < numQuadros; i++) {
-            lista.add(-1);  // Inicializa a lista com páginas inválidas
-            referenciadas.add(false);
-            modificadas.add(false);
-        }
 
         for (int pagina : sequencia) {
             int index = lista.indexOf(pagina);
@@ -29,8 +24,8 @@ public class NRU {
                 if (lista.size() < numQuadros) {
                     // Há espaço disponível nos quadros
                     lista.add(pagina);
-                    referenciadas.add(true);
-                    modificadas.add(false);
+                    referenciadas.add(true);  // Inicializa referenciadas para a nova página
+                    modificadas.add(false);  // Inicializa modificadas para a nova página
                 } else {
                     // Nenhum espaço disponível, realizar substituição
                     int paginaSubstituir = escolherPaginaParaSubstituir(referenciadas, modificadas);
@@ -49,10 +44,10 @@ public class NRU {
                 referenciadas.set(index, true);
             }
         }
-        long endTime  = System.currentTimeMillis();
-        long executionTime  = endTime - startTime;
+        long endTime = System.currentTimeMillis();
+        long executionTime = endTime - startTime;
 
-        System.out.println("Tempo de execução NRU em ms: "  + executionTime);
+        System.out.println("Tempo de execução NRU em ms: " + executionTime);
         System.out.println("Número total de page faults (NRU): " + pageFaults);
     }
 
@@ -73,13 +68,5 @@ public class NRU {
             }
         }
         return escolherPaginaParaSubstituir(referenciadas, modificadas);
-    }
-
-    public static void main(String[] args) {
-        int numQuadros = 3;
-        int numPaginas = 10;
-        List<Integer> sequencia = List.of(1, 2, 3, 4, 1, 5, 6, 3, 7, 8, 7, 8, 9, 7, 8, 9, 5);
-
-        executar(numQuadros, numPaginas, sequencia);
     }
 }

@@ -19,24 +19,27 @@ public class Main {
         System.out.print("Informe o tamannho da sequência aleatória: ");
         int numTamanhoSequenciaAleatoria = scanner.nextInt();
         List<Integer> paginasReferenciadas = gerarSequenciaAcessosAleatoria(numPaginas, numTamanhoSequenciaAleatoria);
+
+        // Executando FIFO
+        System.out.println("\n### FIFO ###");
+        FIFO.executar(numQuadros, numPaginas, paginasReferenciadas);
         
         // Executando Segunda Chance
         System.out.println("\n### Algoritimo Segunda Chance ###");
         SegundaChance.executar(numQuadros, numPaginas,paginasReferenciadas);
         
+        // Executando Relogio
+        System.out.println("\n### Algoritimo Relógio ###");
+        Relogio.executar(numQuadros, numPaginas, paginasReferenciadas);
+        
+        // Executando LRU
+        System.out.println("\n### New LRU ###");
+        LRU.executar(numQuadros, numPaginas, paginasReferenciadas);
+
         // Executando NRU
         System.out.println("\n### Algoritimo NRU ###");
         NRU.executar(numQuadros, numPaginas, paginasReferenciadas);
-
-        // Executando New FIFO
-        System.out.println("\n### New FIFO ###");
-        NewFIFO.executar(numQuadros, numPaginas, paginasReferenciadas);
         
-        // Executando New FIFO
-        System.out.println("\n### New LRU ###");
-        NewLRU.executar(numQuadros, numPaginas, paginasReferenciadas);
-
-
         scanner.close();
     }
 
