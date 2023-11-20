@@ -4,8 +4,6 @@ import java.util.*;
 public class SegundaChance {
 
     public static void executar(int numQuadros, int numPaginas, List<Integer> sequencia) {
-        System.out.println("Número de quadros: " + numQuadros);
-        System.out.println("Número total de páginas distintas: " + numPaginas);
 
         LinkedList<Integer> lista = new LinkedList<>();
         BitSet referenciadas = new BitSet(numQuadros);
@@ -31,8 +29,8 @@ public class SegundaChance {
         long endTime = System.currentTimeMillis();
         long executionTime = endTime - startTime;
 
-        System.out.println("Tempo de execução Segunda Chance em ms: " + executionTime );
-        System.out.println("Número total de page faults (Segunda Chance): " + pageFaults);
+        System.out.println("Tempo de execução em ms: " + executionTime );
+        System.out.println("Número total de page faults : " + pageFaults);
     }
 
     private static int encontrarPaginaParaSubstituir(BitSet referenciadas, List<Integer> lista) {

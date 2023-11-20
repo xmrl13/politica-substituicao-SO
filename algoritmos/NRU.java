@@ -6,8 +6,6 @@ import java.util.List;
 public class NRU {
 
     public static void executar(int numQuadros, int numPaginas, List<Integer> sequencia) {
-        System.out.println("Número de quadros: " + numQuadros);
-        System.out.println("Número total de páginas distintas: " + numPaginas);
 
         List<Integer> lista = new ArrayList<>(numQuadros);
         List<Boolean> referenciadas = new ArrayList<>();
@@ -47,8 +45,8 @@ public class NRU {
         long endTime = System.currentTimeMillis();
         long executionTime = endTime - startTime;
 
-        System.out.println("Tempo de execução NRU em ms: " + executionTime);
-        System.out.println("Número total de page faults (NRU): " + pageFaults);
+        System.out.println("Tempo de execução em ms: " + executionTime);
+        System.out.println("Número total de page faults: " + pageFaults);
     }
 
     private static int escolherPaginaParaSubstituir(List<Boolean> referenciadas, List<Boolean> modificadas) {
