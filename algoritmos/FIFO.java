@@ -4,7 +4,7 @@ import java.util.*;
 
 public class FIFO {
 
-    public static void executar(int numQuadros, int numPaginas, List<Integer> sequencia) {
+    public static void executar(int numQuadros, List<Integer> sequencia) {
 
         HashSet<Integer> conjunto = new HashSet<>(numQuadros);
         Queue<Integer> fila = new LinkedList<>();

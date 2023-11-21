@@ -5,8 +5,7 @@ import java.util.List;
 
 public class NRU {
 
-    public static void executar(int numQuadros, int numPaginas, List<Integer> sequencia) {
-
+    public static void executar(int numQuadros, List<Integer> sequencia) {
         List<Integer> lista = new ArrayList<>(numQuadros);
         List<Boolean> referenciadas = new ArrayList<>();
         List<Boolean> modificadas = new ArrayList<>();

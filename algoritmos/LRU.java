@@ -17,7 +17,7 @@ public class LRU {
         }
     }
 
-    public static void executar(int numQuadros, int numPaginas, List<Integer> sequencia) {
+    public static void executar(int numQuadros, List<Integer> sequencia) {
         Map<Integer, Pagina> mapa = new HashMap<>(numQuadros);
         LinkedList<Pagina> ordemAcesso = new LinkedList<>();
         int pageFaults = 0;

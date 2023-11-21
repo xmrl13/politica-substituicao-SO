@@ -42,10 +42,10 @@ public class Relogio {
             if (paginaAtual.bitR) {
                 paginaAtual.bitR = false;
             } else {
-                pageFaults++;
+                pageFaults++; // Incrementa o contador apenas quando uma página é removida
                 break;
             }
-
+    
             ponteiro = (ponteiro + 1) % paginas.size();
         }
     }
@@ -54,9 +54,8 @@ public class Relogio {
         return pageFaults;
     }
 
-    public static void executar(int numQuadros, int numPaginas, List<Integer> paginasReferenciadas) {
+    public static void executar(int numQuadros, List<Integer> paginasReferenciadas) {
         Relogio algoritmo = new Relogio(numQuadros);
-
         long startTime = System.currentTimeMillis();
 
         for (int idPaginaReferenciada : paginasReferenciadas) {
